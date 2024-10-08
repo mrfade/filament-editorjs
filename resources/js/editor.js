@@ -3,6 +3,8 @@ import Checklist from '@editorjs/checklist';
 import Code from '@editorjs/code';
 import Delimiter from '@editorjs/delimiter';
 import EditorJS from '@editorjs/editorjs';
+import Embed from '@editorjs/embed';
+import FootnotesTune from '@editorjs/footnotes';
 import Header from '@editorjs/header';
 import ImageGallery from 'editorjs-gallery';
 import ImageTool from '@editorjs/image';
@@ -15,6 +17,10 @@ import Paragraph from '@editorjs/paragraph';
 import Quote from '@editorjs/quote';
 import RawTool from '@editorjs/raw';
 import Table from '@editorjs/table';
+import SimpleVideo from 'simple-video-editorjs';
+import Strikethrough from 'editorjs-strikethrough';
+import Subscript from 'editorjs-subscript';
+import Superscript from 'editorjs-superscript';
 import Underline from '@editorjs/underline';
 import Warning from '@editorjs/warning';
 import DragDrop from 'editorjs-drag-drop';
@@ -105,6 +111,23 @@ document.addEventListener('alpine:init', () => {
                     enabledTools.delimiter = Delimiter;
                 }
 
+                if (this.tools.includes('embed')) {
+                    enabledTools.embed = {
+                        class: Embed,
+                        services: {
+                            twitter: true,
+                            vimeo: true,
+                            youtube: true,
+                        },        
+                    };
+                }
+
+                if (this.tools.includes('footnotes')) {
+                    enabledTools.footnotes = {
+                        class: FootnotesTune,
+                    };
+                }
+                
                 if (this.tools.includes('header')) {
                     const headerToolConfig = toolsOptions.hasOwnProperty('header') ? toolsOptions.header : {};
                     const headerToolDefaultConfig = {};
@@ -292,25 +315,38 @@ document.addEventListener('alpine:init', () => {
                     };
                 }
 
+                if (this.tools.includes('simple-video')) {
+                    enabledTools.video = {
+                        class: SimpleVideo,
+                    };
+                }
+
                 if (this.tools.includes('underline')) {
                     enabledTools.underline = Underline;
                 }
 
-                if (this.tools.includes('warning')) {
-                    const warningToolConfig = toolsOptions.hasOwnProperty('warning') ? toolsOptions.warning : {};
-                    const warningToolDefaultConfig = {
-                        titlePlaceholder: 'Title',
-                        messagePlaceholder: 'Message',
+                if (this.tools.includes('simple-video')) {
+                    enabledTools.video = {
+                        class: SimpleVideo,
                     };
+                }
 
-                    enabledTools.warning = {
-                        class: Warning,
-                        inlineToolbar: true,
-                        shortcut: 'CMD+SHIFT+W',
-                        config: {
-                            ...warningToolDefaultConfig,
-                            ...warningToolConfig,
-                        }
+                if (this.tools.includes('strikethrough')) {
+                    enabledTools.strikethrough = {
+                        class: Strikethrough,
+                        shortcut: 'CMD+SHIFT+X',
+                    };
+                }
+
+                if (this.tools.includes('subscript')) {
+                    enabledTools.subscript = {
+                        class: Subscript,
+                    };
+                }
+
+                if (this.tools.includes('superscript')) {
+                    enabledTools.superscript = {
+                        class: Superscript,
                     };
                 }
 
