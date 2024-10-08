@@ -315,12 +315,6 @@ document.addEventListener('alpine:init', () => {
                     };
                 }
 
-                if (this.tools.includes('simple-video')) {
-                    enabledTools.video = {
-                        class: SimpleVideo,
-                    };
-                }
-
                 if (this.tools.includes('underline')) {
                     enabledTools.underline = Underline;
                 }

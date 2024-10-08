@@ -35,6 +35,12 @@ class EditorJs extends Field implements HasFileAttachmentsContract
         'table',
         'underline',
         'warning',
+        'embed',
+        'footnotes',
+        'simple-video',
+        'strikethrough',
+        'subscript',
+        'superscript',
     ];
 
     protected array | Closure $toolsOptions = [];
