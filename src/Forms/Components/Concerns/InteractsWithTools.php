@@ -18,7 +18,8 @@ trait InteractsWithTools
     public function disableTools(array $toolsToDisable = []): static
     {
         $this->tools = collect($this->getTools())
-            ->filter(static fn ($button) => !in_array($button, $toolsToDisable))
+            ->filter(static fn ($tool) => !in_array($tool, $toolsToDisable))
+            ->values()
             ->toArray();
 
         return $this;
