@@ -113,15 +113,6 @@
   \************************************************************************************************************************************/
 
 /**
-       * Base Paragraph Block for the Editor.js.
-       * Represents a regular text block
-       *
-       * @author CodeX (team@codex.so)
-       * @copyright CodeX 2018
-       * @license The MIT License (MIT)
-       */
-
-/**
  * Base Paragraph Block for the Editor.js.
  * Represents a regular text block
  *
@@ -132,11 +123,8 @@
 
 /**
  * CodeTool for Editor.js
- *
- * @author CodeX (team@ifmo.su)
- * @copyright CodeX 2018
- * @license MIT
  * @version 2.0.0
+ * @license MIT
  */
 
 /**
@@ -167,17 +155,15 @@
 
 /**
  * Image Tool for the Editor.js
- *
  * @author CodeX <team@codex.so>
  * @license MIT
  * @see {@link https://github.com/editor-js/image}
  *
  * To developers.
  * To simplify Tool structure, we split it to 4 parts:
- *  1) index.js — main Tool's interface, public API and methods for working with data
- *  2) uploader.js — module that has methods for sending files via AJAX: from device, by URL or File pasting
- *  3) ui.js — module for UI manipulations: render, showing preloader, etc
- *  4) tunes.js — working with Block Tunes: render buttons, handle clicks
+ *  1) index.ts — main Tool's interface, public API and methods for working with data
+ *  2) uploader.ts — module that has methods for sending files via AJAX: from device, by URL or File pasting
+ *  3) ui.ts — module for UI manipulations: render, showing preloader, etc
  *
  * For debug purposes there is a testing server
  * that can save uploaded files and return a Response {@link UploadResponseFormat}

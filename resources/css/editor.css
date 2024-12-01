@@ -1,6 +1,6 @@
-/* @tailwind base; */
+@tailwind base;
 @tailwind components;
-/* @tailwind utilities; */
+@tailwind utilities;
 
 .editorjs-wrapper {
   @apply border rounded-lg relative bg-white shadow-sm prose prose-sm dark:prose-invert border-gray-300 mx-auto dark:bg-white/5 dark:border-gray-600 ring-1 ring-gray-950/5 dark:ring-white/10;
@@ -38,7 +38,11 @@
 }
 
 .ce-popover-item {
-  @apply dark:hover:bg-gray-700 dark:text-white;
+  @apply dark:text-white;
+}
+
+.ce-popover-item:not(.ce-popover-item--no-hover) {
+  @apply dark:hover:bg-gray-700;
 }
 
 .ce-code__textarea {
@@ -102,22 +106,10 @@
   @apply dark:border-gray-600;
 }
 
-.tc-add-row {
-  @apply dark:hover:bg-gray-600;
+.tc-add-row, .tc-add-column {
+  @apply dark:hover:bg-gray-600 dark:hover:before:bg-gray-600;
 }
 
-.tc-add-row:hover::before {
-  @apply dark:bg-gray-600;
-}
-
-.tc-add-column {
-  @apply dark:hover:bg-gray-600 dark:border-gray-600;
-}
-
-.tc-row, .tc-cell {
-  @apply dark:border-gray-600;
-}
-
-.tc-row::after {
-  @apply dark:border-gray-600;
+.tc-add-column, .tc-row, .tc-cell {
+  @apply dark:border-gray-600 dark:after:bg-gray-600
 }
