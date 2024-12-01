@@ -157,3 +157,12 @@
 .tc-popover__item-icon {
   @apply dark:bg-transparent dark:border-gray-500;
 }
+
+.link-tool__content--rendered,
+.image-tool--uploading .image-tool__image {
+  @apply dark:bg-transparent dark:border-gray-600;
+}
+
+.cdx-notify {
+  @apply dark:!bg-gray-800 dark:text-white;
+}
