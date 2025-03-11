@@ -1,6 +1,6 @@
-/* @tailwind base; */
+@tailwind base;
 @tailwind components;
-/* @tailwind utilities; */
+@tailwind utilities;
 
 .editorjs-wrapper {
   @apply border rounded-lg relative bg-white shadow-sm prose prose-sm dark:prose-invert border-gray-300 mx-auto dark:bg-white/5 dark:border-gray-600 ring-1 ring-gray-950/5 dark:ring-white/10;
@@ -9,6 +9,10 @@
 
 .codex-editor__redactor {
   @apply px-3 py-2;
+}
+
+.codex-editor__redactor *::selection {
+  @apply dark:bg-gray-900 dark:text-gray-100;
 }
 
 .cdx-search-field {
@@ -26,11 +30,19 @@
 
 .ce-toolbar__plus,
 .ce-toolbar__settings-btn {
-  @apply dark:text-gray-300 dark:hover:bg-gray-500;
+  @apply dark:text-gray-200 dark:hover:bg-gray-500;
 }
 
 .ce-popover {
   @apply dark:bg-gray-800 dark:border-gray-600;
+}
+
+.ce-popover__container {
+  @apply dark:bg-gray-800 dark:border-gray-600;
+}
+
+.ce-popover-item__secondary-title {
+  @apply dark:text-gray-300;
 }
 
 .ce-popover-item__icon {
@@ -38,11 +50,15 @@
 }
 
 .ce-popover-item {
-  @apply dark:hover:bg-gray-700 dark:text-white;
+  @apply dark:text-white;
+}
+
+.ce-popover-item:not(.ce-popover-item--no-hover) {
+  @apply dark:hover:bg-gray-700;
 }
 
 .ce-code__textarea {
-  @apply dark:bg-gray-800 dark:text-white;
+  @apply dark:bg-gray-800 dark:border-gray-500 dark:text-white;
 }
 
 .ce-settings {
@@ -54,16 +70,25 @@
   @apply dark:text-white dark:hover:bg-gray-500;
 }
 
-.cdx-search-field__icon .icon {
+.cdx-search-field__icon svg {
   @apply dark:text-white;
 }
 
 .cdx-search-field__input {
-  @apply dark:text-white dark:placeholder:text-gray-400;
+  @apply dark:text-white dark:placeholder:text-gray-200;
 }
 
-.ce-popover__no-found {
-  @apply dark:text-gray-400;
+.ce-popover__no-found,
+.ce-popover__nothing-found-message {
+  @apply dark:text-gray-200;
+}
+
+.ce-popover-item-separator {
+  @apply dark:border-gray-600;
+}
+
+.ce-popover-item-separator__line {
+  @apply dark:bg-gray-600;
 }
 
 .ce-inline-toolbar {
@@ -71,7 +96,7 @@
 }
 
 .ce-inline-tool {
-  @apply dark:text-white dark:hover:bg-gray-500;
+  @apply dark:text-white dark:hover:bg-gray-700;
 }
 
 .ce-inline-tool-input {
@@ -94,30 +119,50 @@
   @apply dark:invert;
 }
 
-.tc-table {
-  @apply dark:border-gray-600;
-}
-
+.tc-table,
+.tc-add-row,
+.tc-add-column,
+.tc-row,
+.tc-row::after,
+.tc-cell,
 .tc-table--heading .tc-row:first-child {
   @apply dark:border-gray-600;
 }
 
-.tc-add-row {
-  @apply dark:hover:bg-gray-600;
+.tc-add-row, .tc-add-column {
+  @apply dark:hover:bg-gray-600 dark:hover:before:bg-gray-600 dark:hover:text-white;
 }
 
-.tc-add-row:hover::before {
-  @apply dark:bg-gray-600;
+.tc-toolbox__toggler {
+  @apply dark:hover:text-white;
 }
 
-.tc-add-column {
-  @apply dark:hover:bg-gray-600 dark:border-gray-600;
+.tc-row--selected,
+.tc-cell--selected {
+  @apply dark:bg-gray-600 dark:after:bg-gray-600;
 }
 
-.tc-row, .tc-cell {
-  @apply dark:border-gray-600;
+.tc-popover {
+  @apply dark:bg-gray-800 dark:border-gray-600;
 }
 
-.tc-row::after {
-  @apply dark:border-gray-600;
+.tc-popover__item {
+  @apply dark:hover:bg-gray-600 dark:text-white;
+}
+
+.tc-popover__item:hover .tc-popover__item-icon {
+  @apply dark:border-transparent;
+}
+
+.tc-popover__item-icon {
+  @apply dark:bg-transparent dark:border-gray-500;
+}
+
+.link-tool__content--rendered,
+.image-tool--uploading .image-tool__image {
+  @apply dark:bg-transparent dark:border-gray-600;
+}
+
+.cdx-notify {
+  @apply dark:!bg-gray-800 dark:text-white;
 }
